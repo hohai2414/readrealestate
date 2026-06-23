@@ -9,6 +9,9 @@ import json
 import re
 from PIL import Image
 
+# Cấu hình giao diện Streamlit
+st.set_page_config(page_title="Trích xuất dữ liệu Sổ đỏ", layout="wide", page_icon="📄")
+
 # 1. Khởi tạo cấu hình và tải biến môi trường
 load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
@@ -105,8 +108,7 @@ def create_excel_download(df):
     return output.getvalue()
 
 def main():
-    # Cấu hình giao diện Streamlit
-    st.set_page_config(page_title="Trích xuất dữ liệu Sổ đỏ", layout="wide", page_icon="📄")
+    # Giao diện chính
     st.title("📄 Trích xuất dữ liệu sổ đỏ sang Excel")
     
     st.markdown("Upload ảnh **Giấy chứng nhận quyền sử dụng đất** để trích xuất thông tin tự động bằng **Gemini 2.5 Flash API**.")
